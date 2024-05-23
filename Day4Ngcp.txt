@@ -1,0 +1,285 @@
+OPEN CMD
+route add 10.0.0.0 mask 255.0.0.0 10.M.1.4
+route add 200.0.0.0 mask 255.255.255.0 10.M.1.4
+
+OPEN CMD
+1. ping 10.M.1.10
+2. ping 10.M.100.8
+3. ping 10.M.M.1
+4. ping 200.0.0.M
+5. ping 200.0.0.K
+6. ping 10.21.1.10
+   ping 10.22.1.10
+   ping 10.31.1.10
+   ping 10.32.1.10
+   ping 10.41.1.10
+   ping 10.42.1.10
+
+PING 10.12.1.10
+
+task1: learn to save:
+27 below:   copy run start  x enter twice
+JurassicOld:  wr
+
+TASK2: Network Engineer with Cybersecurity Analyst Credentials:
+RULE1: 
+
+transport layer:4: 
+cmd
+ping 10.v.1.10
+nmap -v 104.16.232.27
+delikadoSobra: 139/445
+net  use  \\10.v.1.10\ipc$
+net  use  h:  \\10.v.1.10\c$
+
+TASK3: HOW TO implement Basic Network Security:
+configure SSH VERSION 2 for secured Access:
+configure Encryption for switchaccess:
+@coreBABA:
+config t
+username admin privilege 15 secret pass
+ip domain-name ngcpM.com
+crypto key generate rsa
+                   1024
+ip ssh version 2
+line vty 0 14
+  login local
+
+TASK4: HOW TO SECURE NGCP WEBSITE WITH SSL CERTIFICATE:
+
+ALWAYS ENCRYPT your website with SSL encryption:
+
+TASK5: CONFIGURE  SITE  TO  SITE VPN:
+
+CMD
+ping 192.168.102.10
+ping 192.168.102.20
+
+TASK6: Protecting your Network with Firewalls:
+3kinds of firewall:
+PangRich: "stateful", application level firewall. + machineLearning
+           Artificial Intelligence. = NGFW, ML,Ai
+          " 3way handshake:"
+           netstat -s -p tcp
+           
+PangMidClass:  Layer 3 to Layer 7: Firewall.
+
+PangPoor: Pang CCNA, Packet Filter Firewall:
+          PROTECTS LAYER 3, LAYER 4 only.
+
+configure VPNJapan:
+config t
+no logging console
+int gi 1
+no shut
+ip add 192.168.108.10 255.255.255.0
+int gi 3
+ip add 192.168.104.10 255.255.255.0
+no shut
+end
+#GIVE INTERNET TO VPN JAPANS:
+config t
+ip route 0.0.0.0  0.0.0.0 192.168.108.2
+ip domain-lookup
+ip name-server 1.1.1.1
+end
+
+TASK7: LEARN TO BLOCK ALL MAJOR PORN SITES TO protect
+        your soul/mind.
+MajorShock: ALL THE TOP 100 pornsites are owned by 5 companies.
+
+youporn.com
+pornhub.com 66.254.114.41
+redtube.com 66.254.114.23
+faketaxi.com 66.254.114.234
+bangbros.com
+txxx.com
+bangbus.com  104.21.5.229
+pinayflix.com 104.21.234.3
+
+xhamster.com 88.208.29.180
+
+iyottube.com 68.235.37.3
+
+Cisco Standard Access-list [1-99] can Block IP address of anything:
+usage: BLOCK all RUSSIAN, NORTHKOREA, CHINA, NIGERIA IP.
+@vpnJAPN:
+config t
+no access-list 1
+access-list 1 deny 66.254.0.0 0.0.255.255
+access-list 1 deny 104.21.0.0 0.0.255.255
+access-list 1 deny 68.235.0.0 0.0.255.255
+access-list 1 deny 104.21.0.0 0.0.255.255
+access-list 1 permit Any
+Int Gi 1
+ ip access-group 1 in
+ do sh ip access-list 1
+
+Ex2. blocktheSchools
+bulsu.edu.ph  172.104.0.0
+www.ccp.edu.ph 50.6.0.0
+www.feu.edu.ph  184.168.0.0
+config t
+no access-list 2
+access-list 2 deny 172.104.0.0 0.0.255.255
+access-list 2 deny  50.6.0.0 0.0.255.255
+access-list 2 deny  184.168.0.0 0.0.255.255
+access-list 2 permit Any
+Int Gi 1
+ ip access-group 2 in
+ do sh ip access-list 2
+
+task8: as a futureCyberAnalyst learn how to use
+      NAMED access-list to block pornSites:
+config t
+no ip access-list Standard NOPORN
+ip access-list Standard NOPORN
+ deny 66.254.0.0 0.0.255.255
+ deny 104.21.0.0 0.0.255.255
+ deny 68.235.0.0 0.0.255.255
+ deny 104.21.0.0 0.0.255.255
+ permit Any
+Int Gi 1
+ ip access-group NOPORN in
+ do sh ip access-list NOPORN
+
+TASK9: protecting your WEB ASSESTS: web sites and web app:
+@VPNJAPAN
+config t
+int gi 3
+ ip add 192.168.104.11 255.255.255.0 Secondary
+service finger
+service tcp-small-servers
+service udp-small-servers
+ip dns server
+ip http server
+ip http secure-server
+!Make Ping EASY
+ip host ngcp2.com 192.168.102.10
+ip host ngcp4.com 192.168.104.10
+ip host ngcp5.com 192.168.104.11
+
+TASK9: creating your first firewall Policy: EXTENDED ACL [100-199]
+MAGIC WORDS: "  protocol   hacker   victim    port  "
+ex.1: Create a firewall policy to meet this
+conditions:
+www.ngcp4.com  allow http, https only
+www.ngcp5.com allow ping,dns,https only
+@VPNJPN:
+config t
+no access-list 100
+access-list 100 Permit TCP any host ngcp4.com eq 80
+access-list 100 Permit TCP any host ngcp4.com eq 443
+!!for ngcp5:
+access-list 100 Permit icmp any host ngcp5.com
+access-list 100 Permit TCP any host ngcp5.com eq 53
+access-list 100 Permit TCP any host ngcp5.com eq 443
+Int Gi 3
+ ip  access-group 100 in
+ do sh ip access-list 100
+ do sh run int gi 3
+
+ex.1: Create a firewall 101 policy to meet this
+conditions:
+www.ngcp4.com  allow ping, ssh, dns, http
+www.ngcp5.com allow telnet, https, ssh
+SAGOT:
+CONFIG T
+config t
+no access-list 101
+access-list 101 Permit icmp any host ngcp4.com
+access-list 101 Permit TCP any host ngcp4.com eq 22
+access-list 101 Permit TCP any host ngcp4.com eq 53
+access-list 101 Permit TCP any host ngcp4.com eq 80
+!!for ngcp5:
+access-list 101 Permit TCP any host ngcp5.com eq 23
+access-list 101 Permit TCP any host ngcp5.com eq 443
+access-list 101 Permit TCP any host ngcp5.com eq 22
+Int Gi 3
+ ip  access-group 101 in
+ do sh ip access-list 101
+
+unlock the firewall:
+config t
+Int Gi 3
+ NO ip  access-group 101 in
+ do sh ip access-list 101
+
+EX.4:  configure NAMED firewall BAWAL to meet this policy:
+www.ngcp4.com  allow  ping, http
+www.ngcp5.com allow   https, dns
+CONFIG T
+NO ip access-list EXTENDED BAWAL
+ip access-list EXTENDED BAWAL
+   Permit icmp any host ngcp4.com
+   Permit TCP any host ngcp4.com eq 80
+   !!for ngcp5:
+   Permit TCP any host ngcp5.com eq 53
+    Permit TCP any host ngcp5.com eq 443
+Int Gi 3
+   ip  access-group BAWAL in
+   do sh ip access-list BAWAL
+   do sh run int gi 3
+
+TASK10: NETWORK ADDRESS TRANSLATION: " No Ambag Talaga!"
+GIVE free internet to those who cant Pay.
+lab: give free internet to BLDGJP AND BLDJP2: 104.0, HENTAI: 102.0
+@HOW TO CONFIGURE REAL WORLD NAT: 1. gawa ACL, 2. gawa NAT in/out 3. gawa NAT map
+@VPNJP:
+config t
+access-list 8 permit 192.168.102.0 0.0.0.255
+access-list 8 permit 192.168.104.0 0.0.0.255
+Int Gi 1
+  ip nat OUTSIDE
+Int Gi 2
+  ip nat INSIDE
+Int Gi 3
+  ip nat INSIDE
+ip   nat  inside  source static 192.168.104.20  192.168.108.69
+ip   nat  inside  source static 192.168.104.21  192.168.108.77
+ip   nat  inside source list 8 interface gi 1 overload
+
+HOW TO GIVE IP ADD,GW TO LINUX:
+@HENTAIBLDG:
+sudo  ifconfig  eth0  192.168.102.69 netmask 255.255.255.0 up
+sudo  route add default gw  192.168.102.10
+ping  192.168.102.10
+ping 8.8.8.8
+ping 1.1.1.1
+ping 4.2.2.2
+
+#Bldg1:
+sudo  ifconfig  eth0  192.168.104.20 netmask 255.255.255.0 up
+sudo  route add default gw  192.168.104.10
+ping  192.168.104.10
+ping 8.8.8.8
+ping 1.1.1.1
+ping 4.2.2.2
+netstat -rn
+
+#Bldg2:
+sudo  ifconfig  eth0  192.168.104.21 netmask 255.255.255.0 up
+sudo  route add default gw  192.168.104.10
+ping  192.168.104.10
+ping 8.8.8.8
+ping 1.1.1.1
+ping 4.2.2.2
+netstat -rn
+
+
+@how to check NAT:
+VPNJAPAN#show ip nat translations 
+Pro  Inside global         Inside local          Outside local         Outside global
+---  192.168.108.69        192.168.104.20        ---                   ---
+---  192.168.108.77        192.168.104.21        ---                   ---
+Total number of translations: 2
+
+
+
+
+
+
+
+
+
+

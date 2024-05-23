@@ -1,0 +1,79 @@
+1. create a account in github.com
+   and install github app in your phone.
+   use gmail
+   (connect to rivanwifi3F password= C1sc0123)
+
+2. import this repository:
+
+   https://github.com/rivancorp/ccna2
+
+TASK1: What kind of Network Person are You?
+Old School = "Pang Network Ako!"
+
+Modern Network = 25% Devops:
+Engineer         50% Network:
+                 25% Systems:
+
+TASK2: Configuring your 1st Cisco Device:
+Never, ever Endorse cisco DNAC or catalystCenter
+
+TASK3: Hands-on practice:
+@@BIDAY ILAW,TUNOG six moves:
+config t
+int fa 0/0
+ no shut
+ exit
+voice-port 0/0/0
+ no shut
+ ^c
+
+TASK4: HOW TO TROUBLESHOOT like a expert network engineer:
+pc
+cmd                   REason?          HowtoFix?
+1. ping 10.m.1.10   pcNOip
+2. ping 10.m.1.4    noVlan,wrongVlan
+3. ping 10.m.50.4   SwHasNoRouting
+4. ping 10.m.50.6   IPcameraHasNoIP
+   ping 10.m.50.8   IPcameraHasNoIP
+5. ping 10.m.m.4    FiberCableisCut/locked
+6. ping 10.m.m.1    FiberofEDGEisCut
+                    RoutingEDGEisWrong
+7. ping 200.0.0.m   BLUEfiberCableisCut
+8. ping 200.0.0.k  12,21,22,31,32,41,42
+                   classmate=MePinagDaDaanan
+9. ping 10.k.k.1   fiberOfClassMate
+10. ping 10.k.100.8  CuCM of classMate has
+                     no routing.
+
+TASK5: Basic Python for futureNetworkEngineers:
+cmd
+cd desktop
+mkdir __ROBERTS
+cd __ROBERTS
+git  clone  https://github.com/rivancorp/ccna2
+
+TASK6: IVRS: interactive voice response system.
+"welcome to NGCP, the power provider for the country!"
+press 1 for admin 
+press 2 for hr
+press 3 for itsupport
+press 4 for operations
+
+TASK7: DNS:Domain Name System:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

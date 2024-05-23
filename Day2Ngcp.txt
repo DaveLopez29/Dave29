@@ -1,0 +1,196 @@
+Day2: Network Engineer.
+"repetitition is mother of all skills!"
+
+time: 11:30
+time: 9:45
+bukas:9:30
+
+TASK1:  Network Engineers are also Network Designers.
+        Master IPv4 and IPv6:
+step1:  New eyes:
+
+NormalTao          NetEngV4          NetEngv6
+0-9                  0-255           0-9,a-f
+
+7999             7.255.255.255        :7fff:
+8000              8.0.0.0             :8000:
+8001              8.0.0.1              8001
+
+3999             3.255.255.255         3fff
+4000               4.0.0.0            :4000:
+4001               4.0.0.1             4001
+
+5498               5.4.255.254         54fe
+5499               5.4.255.255         54ff
+5500               5.5.0.0             5500
+
+3098               30.0.255.254        30fe
+3099               30.0.255.255        30ff
+3100               30.1.0.0            3100
+
+10998              100.255.0.254       10fd
+10999              100.255.0.255       10fe
+11000              100.255.1.0         10ff
+
+task2: rivan finger method: ipv4   ipv6:
+/1 = 128.0.0.0
+MASTER THE FINGER.
+
+task3: Learn the bit Length:
+
+task4: PUBLIC VS PRIVATE IP ADDRESS.
+public IP address: are internet routable IP address
+   that gives you internet access.
+country based: 
+    nmap -sP 104.16.232.0/24
+
+private IP address: are Non-internet routable IP address
+     used to connect to Internal Networks.
+    10.0.0.0/8 -> "pangBigtime! 16,777,214 host:lpt,pc,cp,tablet
+    172.16.0.0/16 -> 64,534 host/tao
+    192.168._.0/24 -> 254 hosts/tao
+
+TASK5: Advanced knowledge of IP, routing, and subnetting
+
+ex.1: Design and Configure Accenture.com callcenter
+with 1300 agents,QA,TLs,Pm network using: 10.0.0.0/8
+Subnetting: 10ms:world vs 3 secs: Rivanmethod: CSi
+ConvertIT: 1300 agents -> bits: 11bit
+SubractIT: /32- /11bits = /21  3rd,8i
+IpasoksaMasikipHiwa: ipasok 8i sa 3rd hiwa: x 2
+Accenture:  10.0.8.0/21 + 1
+1stValid: 10.0.8.1
+last/broadcast: 10.0.15.255
+NOTaccenture: 10.0.16.0/21 -1
+
+ex.2: Design and Configure SYKESasia.com callcenter
+with 2500 agents,QA,TLs,Pm network using: 10.0.0.0/8
+Convert: 2500 IS 12BITW
+Subract /32 - /12 = /20, 3RD,16I
+ipasok: IPASOK 16i sa 3rd:
+SYKESasia.com:  10.0.16.0/20 +1
+1st:      10.0.16.1
+Last:     10.0.31.255(broadcast)
+NOTSYKESasia.com: 10.0.32.0/20 -1
+
+ex.3: Design and Configure ex.2: Design and Configure 
+COMELEC.GOV.PH callcenter
+with 380 agents,QA,TLs,Pm network using: 10.0.0.0/8
+Convert: 380 is 9bits
+Subract: /32 - /9 = /23, 3rd,2i
+Ipasok: ipasok is 2i sa 3rd:
+COMELEC.GOV.PH: 10.0.2.0/23
+1st: 10.0.2.1
+last: 10.0.3.255
+notCOMELEC.GOV.PH: 10.0.4.0/23
+
+ex.4: Design and Configure ex.4: Design and Configure 
+ETELECARE.com.ph callcenter
+with 5000 agents,QA,TLs,Pm network using: 10.0.0.0/8
+CONVERT: 13bits
+SUBTRACT: /32 - 13 -= /19, 3rd,32i
+ipasok 32i sa 3rd.
+ETELECARE.com.ph: 10.0.32.0/19
+1ST : 10.0.32.1
+last/bc: 10.0.63.255
+NOTETELECARE.com.ph; 10.0.64.0/19
+
+ex.5: Design and Configure ex.4: Design and Configure 
+PNP.GOV.PH callcenter WITH 180 personel.
+convert: 180 IS 8BITS
+subtract /32 -/8 = /24, 3RD,1i
+ipasok: ipasok 1i sa 3rd:
+PNP.GOV.PH:  10.0.1.0/24
+1st: 10.0.1.0/24
+last: 10.0.1.255/24
+NOTPNP.GOV.PH:  10.0.2.0/24
+
+TASK6: NETWORK ENGINEER: 5 hit Combo attack:
+network,1stvalid,broacast,range,subnets
+exam/troubleshooting.
+ex.1: you found a laptop with IP address of 10.0.51.57/20
+to which company it belongs:
+a. HP: 10.0.16.0
+b. DELL: 10.0.40.0
+c. lenovo: 10.0.48.0 owns the laptop:
+d. huawei: 10.0.32.0
+e. nobody:
+Solution:   10.0.51.57/20, /20= 3rd,16i
+C1:  NETWORK          10.0.48.0/20 +1  --> 10.0.64.0/20-1
+C2:   1STVALID          10.0.48.1
+C3:   BROADCAST:    10.0.63.255
+C4:  allIP/host:   /20  -->  /32, inc 12   2r12 = 2048host!
+       /32 decrease ilan?
+C5:  allsubnets:  10.0.0.0/8  --> /20, 2048 subnets.
+      /orig  ilan increase.
+
+Ex2:  5 hit combo: NET,1ST,BC,HOST,SUBNETS:
+your laptop is 192.168.100.98 /27 ,  4th,32i
+NETWORK:   192.168.100.96 ----->    128-1
+1st:       192.168.100.97
+bc:        192.168.100.127
+hOST:     /32 - __ = /27,  2r5= 32 -2 = 30 host
+SUBNETS:  /24 + __ = /27   2r3 = 8 SUBNETS.
+
+Ex3:  5 hit combo: NET,1ST,BC,HOST,SUBNETS:
+your laptop is 192.168.1.69 /28 ,  4th,16i
+NETWORK:   192.168.1.64 -->  80
+1st:          .65
+bc:           .79
+hOST:     /32 - __ = /28,  2r4 = 14host
+SUBNETS:  /24 + __ = /28   2r4 = 14subnets
+
+Ex4:  5 hit combo: NET,1ST,BC,HOST,SUBNETS:
+your laptop is 192.168.8.90/29, 4th,8i
+NETWORK:   192.168.8.88 -> 96
+1st:          .89
+bc:           .95
+hOST:     /32 - __ = /29,  2r3 =   6host
+SUBNETS:  /24 + __ = /29   2r5_ =   30subnets
+
+TASK7: ON premise Cisco vs Cloud Cisco:
+how to deploy cisco via cloud/virtual.
+1. LINUX IS KING OF THE CLOUD:
+  aws,azure,gcp,alibabacloud =  LINUX.
+
+basic Linux commands for Cisco cloud:
+root
+C1sc0123
+rm  -r  /etc/udev/rules.d/70-persistent-net.rules
+y
+cat   /etc/udev/rules.d/70-persistent-net.rules
+do not exists!
+reboot
+
+TASK8: STATIC ROUTE IN r4: 
+R4:
+config t
+ip route 10.1.1.4 255.255.255.252 10.1.1.9
+ip route 10.1.1.0 255.255.255.252 10.1.1.9
+R3:
+config t
+ip route 10.1.1.0 255.255.255.252 10.1.1.5
+R2:
+ip route 10.1.1.8 255.255.255.252 10.1.1.6
+R1:
+ip route 10.1.1.8 255.255.255.252 10.1.1.2
+ip route 10.1.1.4 255.255.255.252 10.1.1.2
+
+HOMEWORK: 
+1: Design and Configure SYKESasia.com callcenter
+with 8500 agents,QA,TLs,Pm network using: 10.0.0.0/8
+
+2. 5 HIT COMBO: tablet ip = 192.168.0.133 /27
+Net ?
+1st ?
+bc ?
+host ?
+subs ?
+
+
+
+
+
+
+
+

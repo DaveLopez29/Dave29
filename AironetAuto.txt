@@ -1,0 +1,27 @@
+Conf t
+	dot11 ssid ccna-wifi-M
+		authentication open
+		authentication key-management wpa
+		wpa-psk ascii C1sc0123
+		guest-mode
+	int dot11Radio 0
+		no shut
+		encryption mode ciphers tkip
+		ssid ccna-wifi-M
+@@@@@@@@@@@@@@@@@@@@@
+config t
+username admin privilege 15 secret pass
+line vty 0 14
+login local
+end
+
+
+
+
+
+
+
+
+
+
+

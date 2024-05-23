@@ -1,0 +1,118 @@
+homelab:1:
+10.0.0.0 ->8500
+c: 8500 is 14bs
+s /32 - /14 = /18, 3rd,64i
+ipasok/isulud ang 64i sa 3rd:
+convengys: 10.0.64.0/18 + 1
+1st: 10.0.64.1
+last: 10.0.127.255
+NotConvergys: 10.0.128.0/18
+SeniorLevelNE skills
+192.168.100.177/28
+1.  /28 is 4th,16i  net: 192.168.100.176       .192
+2    .177 - 191
+3 broadcast: .191
+4. hosts: /32 - __ = /28,  2r4 -> 16-2 = 14
+5 subnets: /24 -> __ = /28, 2r4, 16-2 14 subnets
+
+TASK3: Automation Versions: give your 6digits ASKING PRICE.
+1. Python.py + json
+2. Ansible + yml
+
+TASK4:  MANAGED SERVICE PROVIDER: MSP.
+
+TASK5: REAL WORLD OLDS: sulat sa papel labs:
+@R3 HQ=backbone:
+config t
+int loopback 0
+ip add 3.3.3.3 255.255.255.255
+router ospf 1
+router-id 3.3.3.3
+network 10.1.1.8 0.0.0.3 Area 34
+network 10.1.1.4 0.0.0.3 Area 0
+network 3.3.3.3 0.0.0.0 Area 0
+
+TASK6: BASIC BGP TO UPGRADE YOUR CAREER.
+EIGRP: enhanced Interior gateway routing protocol
+OSPF: open shortest path first protocol
+eBGP: exterior border gateway protocol
+iBGP: interior bgp
+BGP:  BiG PaysaHod
+@configure BGP for R1:
+router bgp 1
+bgp log-neighbor-changes
+bgp router-id 1.1.1.1
+neighbor 208.8.8.4 remote-as 45
+neighbor 207.7.7.2 remote-as 2
+neighbor 209.9.9.3 remote-as 3
+network 208.8.8.0 mask 255.255.255.0
+network 207.7.7.0 mask 255.255.255.0
+network 209.9.9.0 mask 255.255.255.0
+network 10.1.1.0 mask 255.255.255.252
+
+TASK7:  DESIGN AND CONFIGURE SITE TO SITE VPN:
+what is VPN CONNECTION =  1.encryption +2.hashing+ 3.Tunnelling = vpn
+
+Work From HOme =  VPN CONNECTION, non-negotiable.
+No encryption/NO vpn WFH: 
+             www.bulsu.edu.ph
+IP ADDRESS scanning:   nmap -sP 202.125.102.0/24
+
+hack your Neighbor:
+layer3 attack/ip address:   ping 10.K.1.10
+                            nmap -sP 10.k.1.0/24   nmap -sP 10.k.100.0/24
+layer4 attack/Port Scanning:
+                  nmap -v 10.k.1.10
+                  is 139,445 open ??
+layer5 attack: netbios hijacking attack:
+      cmd
+      net  use  \\10.k.1.10\ipc$
+     "gamitin ang H: para connect sa C: nya"
+      net use h: /delete
+      net  use  h: \\10.k.1.10\c$
+
+Layer7: how to know if YOUR ARE HACKED/BOTNET/VIRUSD/MALWARE already.
+ 
+      netstat  -s  -p  tcp
+TASK8: how to be a Network Engineer with CyberSecurity skills. nmap
+
+TASK9:  DESIGN AND CONFIGURE SITE TO SITE VPN:
+what is VPN CONNECTION =  1.encryption + 2.hashing+ 3.Tunnelling = vpn
+                           confidentility  Integrity   Availability CIA
+@VPNPINAS:
+enable
+config t
+no logging console
+no ip domain-lookup
+int gi 1
+ no shut
+ ip add 192.168.108.8 255.255.255.0
+int gi 2
+ no shut
+ ip add 192.168.102.8 255.255.255.0
+int gi 3
+ no shut
+ ip add 192.168.103.8 255.255.255.0
+do wr
+
+@VPNHENATI:
+enable
+config t
+no logging console
+no ip domain-lookup
+int gi 1
+ no shut
+ ip add 192.168.108.9 255.255.255.0
+int gi 2
+ no shut
+ ip add 192.168.102.9 255.255.255.0
+int gi 3
+ no shut
+ ip add 192.168.104.9 255.255.255.0
+do wr
+
+
+
+
+
+

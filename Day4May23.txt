@@ -1,0 +1,344 @@
+enable
+show ip int br 
+              KEY : 12345678
+PINAS                         HENTAI/JAPAN
+TUNNEL IP 
+200.0.0.8                      200.0.0.9
+REMOTE IP PEER
+192.168.108.9                  192.168.108.8
+REMOTE SUBNET
+192.168.104.0                  192.168.103.0
+
+@BLDGPINAS
+sudo su
+ifconfig eth0 192.168.103.18 netmask 255.255.255.0 up
+route add default gw 192.168.103.8
+
+@BLDGHJAPAN
+sudo su
+ifconfig eth0 192.168.104.19 netmask 255.255.255.0 up
+route add default gw 192.168.104.9
+
+@VPN
+show crypto ipsec sa detail
+
+
+@CMD
+route add 10.0.0.0 mask 255.0.0.0 10.M.1.4
+route add 200.0.0.0 mask 255.255.255.0 10.M.1.4
+
+1. ping 10.M.1.10
+2. ping 10.M.1.4
+3. ping 10.M.100.8
+4. ping 10.M.M.1
+5. ping 200.0.0.M
+6. ping 200.0.0.K
+7. ping 10.K.1.10
+
+TASK2: Network Services for Network Engineers:
+ServiceNO.1: The most DNS: domain name system.
+
+step1: Buy and domain so that your become owner
+       primaryzone.
+      ngcpM.com
+step2: Buy and Configure an email system:
+       emailserver
+step3: allow your dns to talk to other DNS:
+       zone transfers.
+cmd
+nslookup
+server 8.8.8.8
+
+Service no.3: FTP server or file transfer server:
+           "tambakan ng lahat ng files!"
+ping   ftp.ngcpM.com
+c:\putithere
+
+Service no.4: corporate WEBsite Service:
+
+TASK3: VAPT: vulnerability assessment and Pentest:
+NAME OF Pentester: ikaw
+client: ______________
+fee: 
+Scope:
+1. network scanning of all ip address and server resources.
+10.k.1.4, 10.k.1.10, 10
+nmap -sP 10.k.1.0/24
+2. port scan 10.k.1.10 for services to attack:
+nmap -v 10.k.1.10
+21/tcp   open  ftp
+25/tcp   open  smtp
+53/tcp   open  domain
+80/tcp   open  http
+110/tcp  open  pop3
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+143/tcp  open  imap
+445/tcp  open  microsoft-ds
+587/tcp  open  submission
+902/tcp  open  iss-realsecure
+912/tcp  open  apex-mesh
+5357/tcp open  wsdapi
+
+nmap -v www.ccp.edu.ph       nmap -v www.meralcoK.ph
+nmap -v www.bulsu.edu.ph     nmap -v www.dlsu.edu.ph   nmap -v www.umak.edu.ph
+
+TASK4: HOW TO START A CAREER BLUETEAMING:
+utm = unified threat management:
+firewall+vpn+antiVirus+ IPS/IDS + NAC:endpoint
+TOP 5 Intherworld:
+1. PALO ALTO: 
+2. Checkpoint: 
+3. Cisco Firepower
+4. Fortinet: 12k
+5. everyOne Else: 
+
+TASK5: protecting your Network Assests: 
+web apps, ftp sites, dns server.
+
+ex.1. Create a web firewall so that only
+http:80  and ping is open on web8.com while
+https:443 and telnet:23 is open on web9.com
+
+ FORMULA: "  Protocol    hacker   victim  Port "
+        tcp,udp,icmp,IP   "any"   cm/cm2   
+config t
+NO IP access-list Extended fwpolicy1
+IP access-list Extended fwpolicy1
+ permit Tcp Any host 192.168.103.8 Eq 80 log
+ permit icmp Any host 192.168.103.8 log
+ permit Tcp Any host 192.168.103.9 Eq 443 log
+ permit Tcp Any host 192.168.103.9 Eq 23 log
+ deny ip any any Log
+ do sh ip access-list fwpolicy1
+ Int Gi3
+  ip access-group fwpolicy1 IN
+  end
+
+Ex2. Create a web firewall so that only
+"FWP2"
+SSH:22  and DNS:53 is open on web8.com while
+http:80 and HTTPs:443 and ping is open on web9.com
+config t
+NO IP access-list Extended FWP2
+IP access-list Extended FWP2
+ permit Tcp Any host 192.168.103.8 Eq 22 log
+ permit Tcp Any host 192.168.103.8 Eq 53 log
+ !
+ permit Tcp Any host 192.168.103.9 Eq 80 log
+ permit Tcp Any host 192.168.103.9 Eq 443 log
+ permit icmp Any host 192.168.103.9 log
+ deny ip any any Log
+ do sh ip access-list FWP2
+ Int Gi3
+  ip access-group FWP2 IN
+  end
+
+Ex3. Create a web firewall so that only
+BANTAY3
+ping, http:80, telnet:23 is open on web8.com while
+dns:53, ftp:21, https:443 is open on web9.com
+config t
+NO IP access-list Extended BANTAY3
+IP access-list Extended BANTAY3
+ permit icmp Any host 192.168.103.8
+ permit Tcp Any host 192.168.103.8 Eq 80 log
+ permit Tcp Any host 192.168.103.8 Eq 23 log
+ !
+ permit Tcp Any host 192.168.103.9 Eq 443 log
+ permit Tcp Any host 192.168.103.9 Eq 21 log
+ permit Tcp Any host 192.168.103.9 Eq 53 log
+ deny ip any any Log
+ do sh ip access-list BANTAY3
+ Int Gi3
+  ip access-group BANTAY3
+
+Ex4. Create a web firewall so that only
+SUPEReasy4
+ping, dns, http, ftp is open on web8.com while
+http, https, ssh, ping is open on web9.com
+config t
+NO IP access-list Extended SUPEReasy4
+IP access-list Extended SUPEReasy4
+ permit icmp Any host 192.168.103.8
+ permit Tcp Any host 192.168.103.8 Eq 53
+ permit Tcp Any host 192.168.103.8 Eq 80
+ permit Tcp Any host 192.168.103.8 Eq 21
+ !
+ permit Tcp Any host 192.168.103.9 Eq 80
+ permit Tcp Any host 192.168.103.9 Eq 443
+ permit Tcp Any host 192.168.103.9 Eq 22
+ permit icmp Any host 192.168.103.9
+ deny ip any any Log
+ do sh ip access-list SUPEReasy4
+ Int Gi3
+  ip access-group SUPEReasy4
+
+Ex4. Create a web firewall so that only
+THELASTP
+http,dns,ftp is open on web8.com while
+telnet,ssh,https,dns is open on web9.com
+
+TASK6: Your brain is the most important asset: PROTECT IT
+       against brain damage:irrepariable. 
+        use firewall policy to block all pornsites in your   
+        organization:
+step1: give internet to UTMPINAS:, point dns to
+       porn site bilis DNS: 1.1.1.1
+config t
+ip route 0.0.0.0 0.0.0.0 192.168.108.2
+ip domain-lookup
+ip name-server 1.1.1.1
+pornhub.com  66.254.114.41
+faketaxi.com
+youjizz.com
+redtube.com
+youporn.com
+bangbus.com 104.21.5.229
+pinayflix.com
+iyottube.com  68.235.37.3
+xhamster.com 104.17.35.109
+
+BLOCK ALL THE TOPPORNSITES:
+use standard Access-list:
+config t
+NO ip access-list standard NOPORN1
+ip access-list standard NOPORN1
+deny 66.254.0.0 0.0.255.255
+deny 104.21.0.0 0.0.255.255
+deny 68.235.0.0 0.0.255.255
+deny 104.17.0.0 0.0.255.255
+permit Any
+ Int Gi3 
+  NO  ip access-group NOPORN1 out
+  ip access-group NOPORN1 in
+ Int Gi1
+  ip access-group NOPORN1 in
+
+Ex2: EDIT YOUR NOPORN1 TO include blocking
+these New Sites:
+www.orgasm.com [172.67.151.94]
+www.handjobhub.com [208.122.220.53
+config t
+NO ip access-list standard NOPORN1
+ip access-list standard NOPORN1
+deny 66.254.0.0 0.0.255.255
+deny 104.21.0.0 0.0.255.255
+deny 68.235.0.0 0.0.255.255
+deny 104.17.0.0 0.0.255.255
+deny 172.67.0.0 0.0.255.255
+deny 208.122.0.0 0.0.255.255
+permit Any
+ Int Gi1
+  ip access-group NOPORN1 in
+
+EX.2: create a standard ACL to block: NOBUYME
+the Magastos sites:
+www.lazada.com 161.49.0.0
+               163.181.0.0
+www.shopee.com 143.92.0.0
+www.temu.com 172.64.0.0
+              104.18.0.0
+config t
+NO ip access-list standard NOBUYME
+ip access-list standard NOBUYME
+deny __.__.0.0 0.0.255.255
+deny __.__.0.0 0.0.255.255
+deny __.__.0.0 0.0.255.255
+permit Any
+ Int Gi1
+  ip access-group NOBUYME in
+
+Ex.3: BLOCK facebook.com and instagram.com:163.70., 
+            tiktok.com, twitter.com
+             23.59.       104.244.
+
+TASK7: exam Laboratory: NETWORK ADDRESS TRANSLATION/NAT
+  PA- hotspot, tether, proxy, pengeInternet.
+PrivateIP: 10.3.3.0/8, 172.16.0.0/24, 192.168.x.0/24
+PublicIPaddress: internet routable IP address:
+             google: "philippines public ip address"
+
+GIVE bldgPInas4: philippine private:
+ifconfig eth0 192.168.102.18 netmask 255.255.255.0 up
+route add default gw 192.168.102.8
+ping 192.168.102.8
+@give internet bldgPinas and bldgPInas4 using NAT:
+!define NAT inside and outside:
+config t
+int gi 1
+ip nat outside
+int gi 2
+ip nat inside
+int gi 3
+ip nat inside
+!Create standard access-list to allow all buildings
+access-list 3 permit 192.168.102.0 0.0.0.255
+access-list 3 permit 192.168.103.0 0.0.0.255
+!Create a static NAT pool and NAT overload:
+ip  nat  inside  source static 192.168.103.18  192.168.108.69
+ip  nat  inside  source static 192.168.102.18  192.168.108.77
+ip  nat  inside source list 3 interface gi 1 overload
+end
+UTMPinas#sh ip nat translations 
+Pro  Inside global         Inside local          Outside local         Outside global
+---  192.168.108.69        192.168.103.18        ---                   ---
+---  192.168.108.77        192.168.102.18        ---                   ---
+icmp 192.168.108.77:45323  192.168.102.18:45323  1.1.1.1:45323         1.1.1.1:45323
+icmp 192.168.108.69:36107  192.168.103.18:36107  8.8.8.8:36107         8.8.8.8:36107
+icmp 192.168.108.77:45067  192.168.102.18:45067  8.8.8.8:45067         8.8.8.8:45067
+icmp 192.168.108.69:35851  192.168.103.18:35851  
+
+TASK8: configuring NETWORK TIME PROTOCOL OR ntp:
+ping time.google.com
+nmap -sU time.google.com
+config t
+ntp server time.google.com
+end
+show ntp association
+show clock
+
+TASK9: HOW TO be world class Network engineer: 
+IPV4 EXPERT:  AND IPV6 expert.
+
+1. 000a:000c:0000:0000:0000:0000:0000:0000/64 =
+        a:c::
+2. 0000:0000:0000:0000:0000:0000:0000:0000/0 = 
+           ::
+3. fe80:0000:0000:0000:000a:0000:0000:000f/64 =
+        fe80::a:0:0:f
+4. 2002:6500:0000:3000:0000:0000:0000:0000/64 = 
+           2002:6500:0:3000::
+5. 0000:0000:0000:0000:0000:0000:0000:0001/128 = 
+                    ::1
+6. ff00:0000:0000:beef:a00a:0aa0:0000:0000/8 = 
+           ff00::beef:a00a:aa0:0:0     
+
+step2: learn how to configure IPv6:
+MEMORIZE all the default IPv6 address/BAWAL gamitin
+
+HOW TO CONFIGURE ipv6 on Cisco Devices:
+CONFIG T
+ipv6 unicast-routing
+int Gi 2
+ ipv6 enable
+ ipv6 address CAFE:FACE:BABA:FAFA::AAAA/64
+int gi 3
+ ipv6 enable
+ ipv6 address babe:bebe:baba:b1b1::AAAA/64
+ do sh ipv6 int brief
+
+TASK10: HOW TO BECOME A DEVOPS: the NEW ci
+CISCO is innocent:
+telnet, ssh, web.
+Cisco Nalasing: python, bash, restapi,netconf hidden as
+                dockers.
+
+
+
+
+
+
+
+
+
